@@ -1,13 +1,13 @@
 const express = require('express');
-const SyncDatabase = require('./db.sync');
 const app = express();
+const router = require('./routes')
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.get('/api/config/sync/database', SyncDatabase.syncDatabase);
+app.use(router);
 
 app.listen(PORT, () => {
-    console.log(`App runnnign on PORT ${PORT}`);
+    console.log(`App running on PORT ${PORT}`);
 });
