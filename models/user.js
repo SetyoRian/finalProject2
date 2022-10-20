@@ -22,13 +22,16 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Full Name Cannot be Empty'
+          msg: 'Full Name Is Required'
         }
       }
     },
     email: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        args: true,
+        msg: 'Email has been Registered'
+      },
       validate: {
         isEmail: {
           args: true,
@@ -36,17 +39,20 @@ module.exports = (sequelize, DataTypes) => {
         },
         notEmpty: {
           args: true,
-          msg: 'Email Cannot be Empty'
+          msg: 'Email Is Required'
         }
       },
     },
     username: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        args: true,
+        msg: "Username Already Taken"
+      },
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Username Cannot be Empty'
+          msg: 'Username Is Required'
         }
       }
     },
@@ -55,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Passowrd Cannot be Empty'
+          msg: 'Passowrd Is Required'
         }
       }
     },
@@ -64,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Profile Image URL Cannot be Empty'
+          msg: 'Profile Image URL Is Required'
         },
         isUrl: {
           args: true,
@@ -77,11 +83,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Age Cannot be Empty'
+          msg: 'Age Is Required'
         },
         isNumeric: {
           args: true,
-          msg: 'Age Must be a Number'
+          msg: 'Age Is Required'
         }
       }
     },
@@ -90,11 +96,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Phone Number Cannot be Empty'
+          msg: 'Phone Number Is Required'
         },
         isNumeric: {
           args: true,
-          msg: 'Phone Number Must be a Number'
+          msg: 'Phone Number Is Required'
         }
       }
     }

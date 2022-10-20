@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Comment Cannot be Empty'
+          msg: 'Comment Is Required'
         }
       }
     },

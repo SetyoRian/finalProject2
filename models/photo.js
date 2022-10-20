@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Title Cannot be Empty'
+          msg: 'Title Is Required'
         }
       }
     },
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Caption Cannot be Empty'
+          msg: 'Caption Is Required'
         }
       }
     },
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Poster Image URL Cannot be Empty'
+          msg: 'Poster Image URL Is Required'
         },
         isUrl: {
           args: true,
