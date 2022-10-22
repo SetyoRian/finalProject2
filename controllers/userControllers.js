@@ -124,6 +124,23 @@ class UserController{
             res.status(500).json(err);
         })
     }
+
+    static async deleteUser(req, res) {
+        let userId = +req.params.userId;
+        try {
+            await User.destroy({
+                where: {
+                    id: userId
+                }
+            }).then(result => {
+                res.status(200).json({message: "Your account has been successfully deleted"});
+            }).catch(err => {
+                res.status(400).json(err);
+            })
+        } catch(err) {
+            res.status(500).json(err);
+        }
+    }
 }
 
 module.exports = UserController;

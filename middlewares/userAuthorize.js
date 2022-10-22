@@ -21,7 +21,7 @@ function userAuthorize(req, res, next) {
         } else {
             return res.status(403).json({
                 name: "Authorization Error",
-                message: `User with id "${authenticatedUser.id}" does not have permission to Edit User with id ${userId}`
+                message: `User with id "${authenticatedUser.id}" does not have permission to Edit/Delete User with id ${userId}`
             });
         }
     })

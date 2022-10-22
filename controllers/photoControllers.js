@@ -42,37 +42,46 @@ class PhotoController {
         }
     }
 
-    static async updatePhotos(req, res) {
-        let id = req.params.id;
+    static async updatePhotobyId(req, res) {
+        let id = req.params.photoId;
         const { tittle, caption, poster_image_url } = req.body;
         let editData = {
-        tittle,
-        caption,
-        poster_image_url,
+            tittle,
+            caption,
+            poster_image_url,
         };
-        Photo.update(editData, {
-        where: {
-            id,
-        },
-        returning: true,
-        });
-        res.status(201).json({ message: "photo data edited successfully" });
+        try {
+            Photo.update(editData, {
+                where: {
+                    id,
+                },
+                returning: true,
+            }).then(result => {
+                res.status(200).json({ photo: result[1][0] });
+            });
+        } catch (error) {
+            res.status(500).json(error);
+        }
     }
     catch(error) {
         res.status(500).json(error);
     }
 
-    static deletePhotoId(req, res) {
-        let id = req.params.id;
-        Photo.destroy({
-        where: {
-            id,
-        },
-        });
-        res.status(201).json({ message: "data deleted successfully" });
-    }
-    catch(error) {
-        res.status(500).json(error);
+    static async deletePhotobyId(req, res) {
+        let id = req.params.photoId;
+        try {
+            Photo.destroy({
+                where: {
+                    id,
+                },
+            }).then(result => {
+                res.status(200).json({ message: "Your photo has been successfully deleted" }); 
+            }).catch(error => {
+                res.status(500).json(error);
+            });   
+        } catch (error) {
+            res.status(500).json(error);
+        }
     }
 }
 
