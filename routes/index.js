@@ -5,6 +5,8 @@ const PhotoController = require('../controllers/photoControllers')
 const authentication = require('../middlewares/authentication');
 const userAuthorize = require('../middlewares/userAuthorize');
 const photoAuthorize = require('../middlewares/photoAutorize');
+const CommentController = require('../controllers/commentControllers');
+const commentAuthorize = require('../middlewares/commentAuthorize');
 
 router.post('/users/register', UserController.registerUser);
 router.post('/users/login', UserController.loginUser);
@@ -17,10 +19,15 @@ router.delete('/users/:userId', UserController.deleteUser);
 
 router.post('/photos', PhotoController.createPhotos);
 router.get('/photos', PhotoController.getAllPhotos);
-
 router.use('/photos/:photoId', photoAuthorize);
 router.put('/photos/:photoId', PhotoController.updatePhotobyId);
 router.delete('/photos/:photoId', PhotoController.deletePhotobyId);
+
+router.post('/comments', CommentController.createComment);
+router.get('/comments', CommentController.getComments);
+router.use('/comments/:commentId', commentAuthorize);
+router.put('/comments/:commentId', CommentController.updateCommentbyId);
+router.delete('/comments/:commentId', CommentController.deleteCommentbyId);
 
 
 module.exports = router
