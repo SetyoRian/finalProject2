@@ -7,6 +7,8 @@ const userAuthorize = require('../middlewares/userAuthorize');
 const photoAuthorize = require('../middlewares/photoAutorize');
 const CommentController = require('../controllers/commentControllers');
 const commentAuthorize = require('../middlewares/commentAuthorize');
+const SocialMediaController = require('../controllers/socialMediaControllers');
+const socialMediaAuthorize = require('../middlewares/socMedAuthorize');
 
 router.post('/users/register', UserController.registerUser);
 router.post('/users/login', UserController.loginUser);
@@ -28,6 +30,12 @@ router.get('/comments', CommentController.getComments);
 router.use('/comments/:commentId', commentAuthorize);
 router.put('/comments/:commentId', CommentController.updateCommentbyId);
 router.delete('/comments/:commentId', CommentController.deleteCommentbyId);
+
+router.post('/socialmedias', SocialMediaController.createSocialMedia);
+router.get('/socialmedias', SocialMediaController.getSocialMedia);
+router.use('/socialmedias/:socialMediaId', socialMediaAuthorize);
+router.put('/socialmedias/:socialMediaId', SocialMediaController.updateSocialMediabyId);
+router.delete('/socialmedias/:socialMediaId', SocialMediaController.deleteSocialMediabyId);
 
 
 module.exports = router

@@ -35,27 +35,33 @@ class CommentController {
     }
 
     static async getComments(req, res) {
-        await Comment.findAll({
-            include: [{
-                model: Photo,
-                attributes: ['id', 'title', 'caption', 'poster_image_url']
-            }, {
-                model: User,
-                attributes: ['id', 'username', 'profile_image_url', 'phone_number']
-            }]
-        }).then(result => {
-            res.status(200).json({comments: result});
-        }).catch(error => {
+        try {
+            const dataComment = await Comment.findAll({
+                include: [{
+                    model: Photo,
+                    attributes: ['id', 'title', 'caption', 'poster_image_url']
+                }, {
+                    model: User,
+                    attributes: ['id', 'username', 'profile_image_url', 'phone_number']
+                }]
+            });
+            res.status(200).json({comments: dataComment});
+          } catch (error) {
             res.status(500).json(error);
-        })
+          }
     }
 
     static async updateCommentbyId(req, res) {
         const { comment } = req.body;
-        const commentId = req.params.commentId;
-        await Comment.update({comment}, {
+        const id = req.params.commentId;
+
+        let editData = {
+            comment,
+        };
+
+        await Comment.update(editData, {
             where: {
-                id: commentId
+                id
             },
             returning: true
         }).then(result => {
@@ -66,10 +72,10 @@ class CommentController {
     }
 
     static async deleteCommentbyId(req, res) {
-        const commentId = req.params.commentId;
+        let id = req.params.commentId;
         await Comment.destroy({
             where: {
-                id: commentId
+                id
             }
         }).then(result => {
             res.status(200).json({ message: "Your comment has been successfully deleted" }); 
