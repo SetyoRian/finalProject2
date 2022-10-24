@@ -1,4 +1,4 @@
-const { Photo, User } = require("../models");
+const { Photo, User, Comment } = require("../models");
 
 class PhotoController {
     static async createPhotos(req, res) {
@@ -28,13 +28,20 @@ class PhotoController {
         let UserId = res.locals.user.id;
         try {
             const dataPhotos = await Photo.findAll({
-                where: { 
-                    UserId
-                },
-                include: {
+                // where: { 
+                //     UserId
+                // },
+                include: [{
+                    model: Comment,
+                    attributes: ['comment'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                }, {
                     model: User,
                     attributes: ['id', 'username', 'profile_image_url']
-                }
+                }]
             });
             res.status(200).json({ photos: dataPhotos });
         } catch (error) {
