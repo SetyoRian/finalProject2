@@ -8,6 +8,10 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(router);
 
+app.get('/', (req, res) => {
+    res.send("Final Project 2");
+})
+
 app.listen(PORT, () => {
     console.log(`App running on PORT ${PORT}`);
 });
