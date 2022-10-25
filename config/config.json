@@ -5,13 +5,7 @@
     "password": "szUHRxpMxqUKDQcD3F2N",
     "database": "railway",
     "port": "6075",
-    "dialect": "postgres",
-    "pool": {
-      "max": 5,
-      "min": 0,
-      "acquire": 30000,
-      "idle": 10000
-    }
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
@@ -26,12 +20,6 @@
     "password": "szUHRxpMxqUKDQcD3F2N",
     "database": "railway",
     "port": "6075",
-    "dialect": "postgres",
-    "pool": {
-      "max": 5,
-      "min": 0,
-      "acquire": 30000,
-      "idle": 10000
-    }
+    "dialect": "postgres"
   }
 }
