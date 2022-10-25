@@ -1,10 +1,17 @@
 {
   "development": {
+    "host": "containers-us-west-39.railway.app",
     "username": "postgres",
-    "password": "Trian1505",
-    "database": "FinalProject2",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "password": "szUHRxpMxqUKDQcD3F2N",
+    "database": "railway",
+    "port": "6075",
+    "dialect": "postgres",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
   },
   "test": {
     "username": "root",
@@ -14,11 +21,17 @@
     "dialect": "mysql"
   },
   "production": {
+    "host": "containers-us-west-39.railway.app",
     "username": "postgres",
     "password": "szUHRxpMxqUKDQcD3F2N",
     "database": "railway",
-    "host": "containers-us-west-39.railway.app",
+    "port": "6075",
     "dialect": "postgres",
-    "port": 6075
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
   }
 }
