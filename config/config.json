@@ -15,11 +15,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "PGHOST": "containers-us-west-39.railway.app",
-    "PGUSER": "postgres",
-    "PGPASSWORD": "szUHRxpMxqUKDQcD3F2N",
-    "PGDATABASE": "railway",
-    "PGPORT": "6075",
+    "host": "containers-us-west-70.railway.app",
+    "username": "postgres",
+    "password": "NQXEenvF0aePyxurSnTw",
+    "database": "railway",
+    "port": "5719",
     "dialect": "postgres"
   }
 }
