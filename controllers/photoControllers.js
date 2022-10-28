@@ -51,9 +51,9 @@ class PhotoController {
 
     static async updatePhotobyId(req, res) {
         let id = req.params.photoId;
-        const { tittle, caption, poster_image_url } = req.body;
+        const { title, caption, poster_image_url } = req.body;
         let editData = {
-            tittle,
+            title,
             caption,
             poster_image_url,
         };
