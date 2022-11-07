@@ -10,7 +10,9 @@
   "scripts": {
     "develop": "SET NODE_ENV=development & nodemon index.js",
     "start": "NODE_ENV=production & node index.js",
-    "build": "NODE_ENV=production npx sequelize db:migrate"
+    "build": "NODE_ENV=production npx sequelize db:migrate",
+    "db:create:test": "npx sequelize db:create --env=test",
+    "db:migrate:test": "npx sequelize db:migrate --env=test"
   },
   "keywords": [],
   "author": "",
