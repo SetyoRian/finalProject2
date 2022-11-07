@@ -1,18 +1,17 @@
 {
   "development": {
-    "host": "containers-us-west-66.railway.app",
     "username": "postgres",
-    "password": "lOPXjT6tuQxWhscCYIaZ",
-    "database": "railway",
-    "port": "6131",
+    "password": "Trian1505",
+    "database": "FinalProject2",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "postgres",
+    "password": "Trian1505",
+    "database": "FinalProject2Test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
     "host": "containers-us-west-70.railway.app",
