@@ -13,7 +13,7 @@ function userAuthorize(req, res, next) {
         if (!user) {
             return res.status(404).json({
                 name: "Data Not Found",
-                message: `User with id "${userId}" not found on Database`
+                message: `User with id ${userId} not found on Database`
             });
         }
         if (user.id === authenticatedUser.id) {
