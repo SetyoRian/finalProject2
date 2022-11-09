@@ -116,7 +116,7 @@ class UserController{
                     username: result[1][0].username,
                     profile_image_url: result[1][0].profile_image_url,
                     age: result[1][0].age,
-                    phone_number: result[1][0].phone_number
+                    phone_number: Number(result[1][0].phone_number)
                 }
             }
             res.status(200).json(response);
