@@ -9,7 +9,7 @@
   },
   "scripts": {
     "develop": "nodemon index.js",
-    "test": "SET NODE_ENV=test& npx jest --runInBand --forceExit",
+    "test": "SET NODE_ENV=test& npx jest --runInBand --forceExit 2-photo.test.js",
     "start": "NODE_ENV=production & node index.js",
     "build": "NODE_ENV=production npx sequelize db:migrate",
     "db:create:test": "npx sequelize db:create --env=test",
