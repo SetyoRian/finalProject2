@@ -12,7 +12,7 @@ function commentAuthorize(req, res, next) {
         if (!comment) {
             return res.status(404).json({
                 name: "Comment Not Found",
-                message: `Comment with id "${commentId}" not found on Database`
+                message: `Comment with id ${commentId} not found on Database`
             });
         }
         if (comment.UserId === authenticatedUser.id) {
