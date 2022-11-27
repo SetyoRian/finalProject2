@@ -12,7 +12,7 @@ function socialMediaAuthorize(req, res, next) {
         if (!socmed) {
             return res.status(404).json({
                 name: "Social Media Not Found",
-                message: `Social Media with id "${socialMediaId}" not found on Database`
+                message: `Social Media with id ${socialMediaId} not found on Database`
             });
         }
         if (socmed.UserId === authenticatedUser.id) {
