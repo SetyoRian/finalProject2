@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: true,
-          msg: 'Scial Media URL Is Required'
+          msg: 'Social Media URL Is Required'
         }
       }
     },
